@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      overflow: hidden;
+    }
+
+    .page {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      transition: opacity 1s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .page.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #page1 {
+      background: url('bg.jpg') center/cover no-repeat;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.88);
+      padding: 35px;
+      border-radius: 25px;
+      max-width: 420px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h1, h2 {
+      font-family: 'Pacifico', cursive;
+      color: #e74c3c;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 22px;
+      border-radius: 20px;
+      border: none;
+      background: #e74c3c;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Hearts -->
+<script>
+  for (let i = 0; i < 20; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+    document.body.appendChild(heart);
+  }
+</script>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="box">
+    <h1>Do you forgive me? 🥺</h1>
+    <p>I really need to ask you this...</p>
+    <button class="btn" onclick="next(2)">Yes 💕</button>
+    <button class="btn" onclick="next(2)">Please forgive me 💔</button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="box">
+    <h2>We were special 🌙</h2>
+    <p>
+      You were not just my friend,  
+      you were my safe place, my comfort,
+      my favourite person to talk to.
+    </p>
+    <button class="btn" onclick="next(3)">Next ➝</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <div class="box">
+    <h2>And I messed up 💔</h2>
+    <p>
+      I let my emotions speak instead of my heart.  
+      I said harsh things that hurt you,  
+      and I hate myself for that.
+    </p>
+    <button class="btn" onclick="next(4)">Next ➝</button>
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+  <div class="box">
+    <h2>My Apology 💌</h2>
+    <p>
+      I'm genuinely sorry for everything.  
+      You didn’t deserve my words,  
+      my anger, or my behaviour.
+    </p>
+    <p>
+      If I could go back in time,  
+      I would choose my words more carefully,  
+      because losing you hurts more than any fight.
+    </p>
+    <button class="btn" onclick="next(5)">Next ➝</button>
+  </div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+  <div class="box">
+    <h2>One last thing 🥹</h2>
+    <p>
+      No matter what you decide,  
+      I’ll always care about you.  
+      You will always matter to me. 💗
+    </p>
+    <p>
+      This apology comes from my heart.
+    </p>
+  </div>
+</div>
+
+<script>
+  function next(n) {
+    document.querySelector(".active").classList.remove("active");
+    document.getElementById("page" + n).classList.add("active");
+  }
+</script>
+
+</body>
+</html>
